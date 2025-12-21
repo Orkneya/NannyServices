@@ -1,0 +1,24 @@
+{
+  "name": "nannyservices",
+  "version": "1.0.0",
+  "description": "Service platform for finding and managing nanny services.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Orkneya/NannyServices.git"
+  },
+  "keywords": [],
+  "author": "Popenko Tetiana <orkneya17@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Orkneya/NannyServices/issues"
+  },
+  "homepage": "https://github.com/Orkneya/NannyServices#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
