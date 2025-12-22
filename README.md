@@ -1,41 +1,32 @@
 # NannyServices
 
-Service platform for finding and managing nanny services.
+Frontend application for a nanny services company.
 
-## Project structure
+## Tech stack
 
-NannyServices/
-├─ frontend/ # React (Vite)
-├─ backend/ # Node.js + Express
+- React
+- Vite
+- Firebase (Authentication, Realtime Database)
+- React Router
+- React Hook Form
+- Yup
+
+## Pages
+
+- Home
+- Nannies
+- Favorites (private)
+
+## Features
+
+- Authentication (modal)
+- Add to favorites
+- Load more pagination
+- Sorting and filtering
+- Appointment request modal
 
 ## Getting started
-
-### Frontend
 
 cd frontend
 npm install
 npm run dev
-
-Frontend runs on: http://localhost:5173
-
-Backend
-cd backend
-npm install
-npm run dev
-
-Backend runs on: http://localhost:5000
-
-Health check
-
-Open in browser:
-http://localhost:5000/api/health
-
-Tech stack:
-
-React (Vite)
-
-Node.js
-
-Express
-
-JavaScript
