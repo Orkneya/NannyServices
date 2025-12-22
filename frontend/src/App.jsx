@@ -1,16 +1,23 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import Login from "./pages/Login/Login";
-import Registration from "./pages/Registration/Registration";
+import Nannies from "./pages/Nannies/Nannies";
+import Favorites from "./pages/Favorites/Favorites";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<Registration />} />
+        <Route path="/тannies" element={<Nannies />} />
+        <Route
+          path="/favorites"
+          element={
+            // <PrivateRoute>
+            <Favorites />
+            // </PrivateRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
