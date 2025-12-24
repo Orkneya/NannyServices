@@ -1,17 +1,39 @@
 import React from "react";
 import styles from "./NannyCard.module.css";
+import HeartIcon from "../../assets/icons/HeartIcon.jsx";
+import CalculateAge from "../../utils/calculeteAge.jsx";
 
 export default function NannyCard({ nanny }) {
+  const age = CalculateAge(nanny.birthday);
   return (
     <div className={styles.card}>
-      <img src={nanny.avatar_url} alt={nanny.name} />
-      <h3>{nanny.name}</h3>
-      <p>{nanny.about}</p>
-      <p>Experience: {nanny.experience}</p>
-      <p>Price: ${nanny.price_per_hour}/hour</p>
-      <p>Rating: {nanny.rating}</p>
-      <button>Read more</button>
-      <button>♡</button>
+      <div className={styles.avatar}>
+        <img src={nanny.avatar_url} alt={nanny.name} />
+      </div>
+      <div className={styles.content}>
+        <div className={styles.head}>
+          <p>Nanny</p>
+          <p>{nanny.location}</p>
+          <p>Rating: {nanny.rating}</p>
+          <p>Price: ${nanny.price_per_hour}/hour</p>
+          <button className={styles.favoriteBtn}>
+            <HeartIcon />
+          </button>
+        </div>
+        <h3>{nanny.name}</h3>
+        <div className={styles.age}>
+          <p>Age: {age}</p>
+          <p>Experience: {nanny.experience}</p>
+          <p>Kids age: {nanny.kids_age}</p>
+        </div>
+        <div className={styles.education}>
+          <p> Characters: {nanny.characters}</p>
+          <p> Education: {nanny.education}</p>
+        </div>
+        <p>{nanny.about}</p>
+
+        <button>Read more</button>
+      </div>
     </div>
   );
 }

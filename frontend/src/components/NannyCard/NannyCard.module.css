@@ -1,19 +1,90 @@
 .card {
-  border: 1px solid #ccc;
-  padding: 16px;
-  margin: 16px 0;
-  border-radius: 8px;
+  display: flex;
+  border: 1px solid var(--background-color);
+  padding: 1.5rem;
+  gap: 1.5rem;
+  border-radius: 1.5rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.card img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+.avatar {
+  width: 7.5rem;
+  height: 7.5rem;
+  border: 2px solid var(--main-color);
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 1rem;
+}
+
+.content {
+  max-width: 74rem;
+  flex: 1;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.favoriteBtn {
+  margin-left: auto;
+}
+
+.age {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.age p {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
+
+  border-radius: 1.5rem;
+  padding: 8px 16px;
+  background: var(--background-color);
+  margin-bottom: 0.5rem;
+}
+
+.education {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.education p {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
+
+  border-radius: 1.5rem;
+  padding: 8px 16px;
+  background: var(--background-color);
 }
 
 .card h3 {
   margin: 8px 0;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--text-color);
 }
 
 .card p {
@@ -21,7 +92,17 @@
 }
 
 .card button {
-  margin-right: 8px;
-  padding: 6px 12px;
-  cursor: pointer;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: var(--text-color);
+}
+
+.card button:hover,
+.card button:active {
+  text-decoration-color: var(--main-color);
+  text-decoration-thickness: 3px;
 }

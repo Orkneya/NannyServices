@@ -1,0 +1,72 @@
+.hero {
+  display: flex;
+  width: 100%;
+  min-height: 31.25rem;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.left {
+  flex: 1;
+  background-color: var(--main-color);
+  padding: 4rem 3.75rem 4rem 4.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 4.5rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 1.75rem;
+  line-height: 1.07;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+  max-width: 31.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 7rem;
+  height: 2rem;
+
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  border: 1px solid var(--text-color);
+
+  background: transparent;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.cta:hover,
+.cta:active {
+  color: var(--text-color-on-fone);
+  border: 1px solid var(--text-color-on-fone);
+}
+
+.arrow {
+  font-size: 1.25rem;
+}
+
+.right {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+}
