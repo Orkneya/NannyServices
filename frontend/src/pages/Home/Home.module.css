@@ -70,7 +70,7 @@
   min-height: 100%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1440px) {
   .left {
     padding: 3rem 2.5rem;
   }
