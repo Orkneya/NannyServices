@@ -7,32 +7,36 @@ export default function NannyCard({ nanny }) {
   const age = CalculateAge(nanny.birthday);
   return (
     <div className={styles.card}>
-      <div className={styles.avatar}>
-        <img src={nanny.avatar_url} alt={nanny.name} />
-      </div>
-      <div className={styles.content}>
-        <div className={styles.head}>
-          <p>Nanny</p>
-          <p>{nanny.location}</p>
-          <p>Rating: {nanny.rating}</p>
-          <p>Price: ${nanny.price_per_hour}/hour</p>
-          <button className={styles.favoriteBtn}>
-            <HeartIcon />
-          </button>
+      <div className={styles.avatar_block}>
+        <div className={styles.avatar}>
+          <img src={nanny.avatar_url} alt={nanny.name} />
         </div>
-        <h3>{nanny.name}</h3>
+        <div className={styles.content}>
+          <div className={styles.head}>
+            <p>Nanny</p>
+            <p>{nanny.location}</p>
+            <p>Rating: {nanny.rating}</p>
+            <p>Price: ${nanny.price_per_hour}/hour</p>
+            <button className={styles.favoriteBtn}>
+              <HeartIcon />
+            </button>
+          </div>
+        </div>
+        <h3 className={styles.name}>{nanny.name}</h3>
         <div className={styles.age}>
           <p>Age: {age}</p>
           <p>Experience: {nanny.experience}</p>
           <p>Kids age: {nanny.kids_age}</p>
-        </div>
-        <div className={styles.education}>
           <p> Characters: {nanny.characters}</p>
           <p> Education: {nanny.education}</p>
         </div>
-        <p>{nanny.about}</p>
+        {/* <div className={styles.education}>
+          <p> Characters: {nanny.characters}</p>
+          <p> Education: {nanny.education}</p>
+        </div> */}
+        <p className={styles.light_color}>{nanny.about}</p>
 
-        <button>Read more</button>
+        {/* <button>Read more</button> */}
       </div>
     </div>
   );

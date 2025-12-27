@@ -42,6 +42,7 @@
 .age {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   flex-direction: row;
   gap: 0.5rem;
 }
@@ -78,13 +79,15 @@
   background: var(--background-color);
 }
 
-.card h3 {
-  margin: 8px 0;
-  font-family: var(--font-family);
+.name {
   font-weight: 500;
   font-size: 24px;
   line-height: 1;
-  color: var(--text-color);
+  /* color: var(--text-color); */
+  color: var(--main-color);
+  /* text-decoration: underline;
+  text-decoration-color: var(--main-color);
+  text-decoration-thickness: 2px; */
 }
 
 .card p {
@@ -105,4 +108,8 @@
 .card button:active {
   text-decoration-color: var(--main-color);
   text-decoration-thickness: 3px;
+}
+
+.light_color {
+  color: var(--secondary-color);
 }

@@ -9,6 +9,7 @@
 }
 
 button {
-  all: unset;
+  color: inherit;
+  font-family: inherit;
   cursor: pointer;
 }
