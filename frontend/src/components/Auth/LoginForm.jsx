@@ -3,7 +3,7 @@ import styles from "./Auth.module.css";
 export default function LoginForm() {
   return (
     <div className={styles.login}>
-      <h2 className={styles.title}>Login</h2>
+      <h2 className={styles.title}>Log In</h2>
       <p className={styles.subtitle}>
         Welcome back! Please enter your details.
       </p>
