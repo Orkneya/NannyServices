@@ -1,0 +1,55 @@
+.login {
+  width: 565px;
+  height: 509px;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+.register {
+  width: 565px;
+  height: 579px;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 16px;
+  margin-bottom: 32px;
+  max-width: 430px;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 438px;
+  margin-bottom: 40px;
+}
+
+.fields input {
+  height: 52px;
+  padding: 0 18px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.submitBtn {
+  width: 438px;
+  height: 52px;
+  border-radius: 30px;
+  padding: 16px 196px;
+  background: var(--main-color);
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}

@@ -116,3 +116,9 @@
 .light_color {
   color: var(--text-color-);
 }
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+  }
+}
