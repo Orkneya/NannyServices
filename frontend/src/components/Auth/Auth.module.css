@@ -6,16 +6,6 @@
   display: flex;
   flex-direction: column;
 }
-/* 
-.login {
-  width: 565px;
-  height: 509px;
-} */
-/* 
-.register {
-  width: 565px;
-  height: 579px;
-} */
 
 .title {
   font-family: var(--font-family);
@@ -46,7 +36,6 @@
 }
 
 .fields input {
-  /* width: 100%; */
   padding: 16px 18px;
 
   border-radius: 12px;
@@ -54,6 +43,7 @@
 
   font-family: var(--font-family);
   font-size: 16px;
+  font-weight: 400;
   color: var(--text-color);
   background: transparent;
 }
@@ -75,10 +65,15 @@
   color: var(--text-color);
 
   font-family: var(--font-family);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
-
+  color: var(--text-color-on-fone);
   cursor: pointer;
+}
+
+.submitBtn:after,
+.submitBtn:hover {
+  background: var(--accent-color);
 }
 
 @media (max-width: 1439px) {
@@ -93,6 +88,7 @@
   .fields,
   .submitBtn {
     width: 100%;
+    font-size: 16px;
   }
 
   .title {
