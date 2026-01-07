@@ -49,8 +49,8 @@ export default function Header() {
         </Container>
       </header>
       <Modal isOpen={authType !== null} onClose={closeModal}>
-        {authType === "login" && <LoginForm />}
-        {authType === "register" && <RegisterForm />}
+        {authType === "login" && <LoginForm onClose={closeModal} />}
+        {authType === "register" && <RegisterForm onClose={closeModal} />}
       </Modal>
     </>
   );

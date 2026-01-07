@@ -1,11 +1,14 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase/firebase";
+
 import { loginSchema } from "../../schemas/authSchema.js";
 
 import styles from "./Auth.module.css";
 
-export default function LoginForm() {
+export default function LoginForm({ onClose }) {
   const {
     register,
     handleSubmit,
@@ -13,11 +16,19 @@ export default function LoginForm() {
   } = useForm({
     resolver: yupResolver(loginSchema),
   });
+  const onSubmit = async (data) => {
+    try {
+      const { email, password } = data;
 
-  const onSubmit = (data) => {
-    console.log("Login data:", data);
-    // тут позже будет Firebase login
+      await signInWithEmailAndPassword(auth, email, password);
+
+      console.log("User logged in");
+      onClose();
+    } catch (error) {
+      console.error(error.message);
+    }
   };
+
   return (
     <form className={styles.login} onSubmit={handleSubmit(onSubmit)}>
       <h2 className={styles.title}>Log In</h2>

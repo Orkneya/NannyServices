@@ -1,11 +1,14 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../../firebase/firebase";
+
 import { registerSchema } from "../../schemas/authSchema.js";
 
 import styles from "./Auth.module.css";
 
-export default function RegisterForm() {
+export default function RegisterForm({ onClose }) {
   const {
     register,
     handleSubmit,
@@ -14,10 +17,27 @@ export default function RegisterForm() {
     resolver: yupResolver(registerSchema),
   });
 
-  const onSubmit = (data) => {
-    console.log("Register data:", data);
-    // тут позже будет Firebase registr
+  const onSubmit = async (data) => {
+    try {
+      const { email, password, name } = data;
+
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      await updateProfile(userCredential.user, {
+        displayName: name,
+      });
+
+      console.log("User registered:", userCredential.user);
+      onClose();
+    } catch (error) {
+      console.error(error.message);
+    }
   };
+
   return (
     <form className={styles.register} onSubmit={handleSubmit(onSubmit)}>
       <h2 className={styles.title}>Registration</h2>
@@ -41,9 +61,6 @@ export default function RegisterForm() {
         {errors.password && (
           <p className={styles.error}>{errors.password.message}</p>
         )}
-        {/* <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" /> */}
       </div>
 
       <button className={styles.submitBtn}>Sign Up</button>
