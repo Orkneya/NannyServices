@@ -6,10 +6,24 @@ import Modal from "../Modal/Modal";
 import LoginForm from "../Auth/LoginForm";
 import RegisterForm from "../Auth/RegisterForm";
 
+import { useAuth } from "../../context/AuthContext";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/firebase";
+
 export default function Header() {
   const [authType, setAuthType] = useState(null);
 
+  const { user } = useAuth();
+
   const closeModal = () => setAuthType(null);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
 
   return (
     <>
@@ -31,19 +45,32 @@ export default function Header() {
             </nav>
 
             <div className={styles.auth}>
-              <button
-                className={styles.authBtn}
-                onClick={() => setAuthType("login")}
-              >
-                Login
-              </button>
+              {user ? (
+                <>
+                  <span className={styles.authBtn}>
+                    {user.displayName || user.email}
+                  </span>
+                  <button className={styles.authBtn} onClick={handleLogout}>
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    className={styles.authBtn}
+                    onClick={() => setAuthType("login")}
+                  >
+                    Login
+                  </button>
 
-              <button
-                className={styles.authBtn}
-                onClick={() => setAuthType("register")}
-              >
-                Registration
-              </button>
+                  <button
+                    className={styles.authBtn}
+                    onClick={() => setAuthType("register")}
+                  >
+                    Registration
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </Container>
