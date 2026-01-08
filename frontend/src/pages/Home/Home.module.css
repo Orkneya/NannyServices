@@ -93,7 +93,7 @@
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
-    min-height: 100vh;
+    /* min-height: 100vh - 1rem; */
     border-radius: 1.5rem;
   }
 
@@ -106,7 +106,7 @@
 
   .right {
     order: 1;
-    min-height: 45vh;
+    min-height: 40vh;
     width: 100%;
   }
 
