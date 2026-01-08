@@ -50,15 +50,54 @@
   color: var(--main-color);
 }
 
+.userIcon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--main-color);
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userIcon img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
+.userBlock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .auth {
   display: flex;
+  align-items: center;
   gap: 8px;
+}
+
+.authUser {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #191a15;
+  padding-right: 16px;
 }
 
 .authBtn {
   border: 1px solid var(--accent-color);
   border-radius: 30px;
-  padding: 14px 39px;
+
+  height: 40px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  /* padding: 14px 39px; */
 
   font-family: var(--font-family);
   cursor: pointer;

@@ -5,6 +5,7 @@ import Container from "../Container/Container";
 import Modal from "../Modal/Modal";
 import LoginForm from "../Auth/LoginForm";
 import RegisterForm from "../Auth/RegisterForm";
+import UserIcon from "../../assets/icons/user.svg";
 
 import { useAuth } from "../../context/AuthContext";
 import { signOut } from "firebase/auth";
@@ -47,12 +48,17 @@ export default function Header() {
             <div className={styles.auth}>
               {user ? (
                 <>
-                  <span className={styles.authBtn}>
-                    {user.displayName || user.email}
-                  </span>
-                  <button className={styles.authBtn} onClick={handleLogout}>
-                    Logout
-                  </button>
+                  <div className={styles.userBlock}>
+                    <div className={styles.userIcon}>
+                      <img src={UserIcon} alt="user" />
+                    </div>
+                    <span className={styles.authUser}>
+                      {user.displayName || user.email}
+                    </span>
+                    <button className={styles.authBtn} onClick={handleLogout}>
+                      Logout
+                    </button>
+                  </div>
                 </>
               ) : (
                 <>
