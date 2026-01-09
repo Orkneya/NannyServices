@@ -1,10 +1,16 @@
 import React from "react";
+import { useState } from "react";
 import styles from "./NannyCard.module.css";
 import HeartIcon from "../../assets/icons/HeartIcon.jsx";
 import CalculateAge from "../../utils/calculeteAge.jsx";
 
 export default function NannyCard({ nanny }) {
   const age = CalculateAge(nanny.birthday);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const toggleFavorite = () => {
+    setIsFavorite((prev) => !prev);
+  };
+
   return (
     <div className={styles.card}>
       <div className={styles.avatar}>
@@ -17,8 +23,16 @@ export default function NannyCard({ nanny }) {
           <p>{nanny.location}</p>
           <p>Rating: {nanny.rating}</p>
           <p>Price: ${nanny.price_per_hour}/hour</p>
-          <button className={styles.favoriteBtn}>
-            <HeartIcon />
+          <button
+            className={styles.favoriteBtn}
+            onClick={toggleFavorite}
+            aria-pressed={isFavorite}
+          >
+            <HeartIcon
+              className={`${styles.heartIcon} ${
+                isFavorite ? styles.filled : ""
+              }`}
+            />
           </button>
         </div>
         <h3 className={styles.name}>{nanny.name}</h3>
