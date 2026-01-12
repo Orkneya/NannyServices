@@ -97,8 +97,6 @@
   padding: 0 24px;
   display: flex;
   align-items: center;
-  /* padding: 14px 39px; */
-
   font-family: var(--font-family);
   cursor: pointer;
 
@@ -149,6 +147,17 @@
 
   .link {
     font-size: 14px;
+  }
+
+  .userIcon {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+  }
+
+  .userIcon img {
+    width: 16px;
+    height: 16px;
   }
 
   .auth {

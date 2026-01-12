@@ -1,5 +1,8 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
+import EyeOnIcon from "../../assets/icons/eye-on.svg";
+import EyeOffIcon from "../../assets/icons/eye-off.svg";
 
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
@@ -9,6 +12,7 @@ import { registerSchema } from "../../schemas/authSchema.js";
 import styles from "./Auth.module.css";
 
 export default function RegisterForm({ onClose }) {
+  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -53,11 +57,25 @@ export default function RegisterForm({ onClose }) {
         <input type="email" placeholder="Email" {...register("email")} />
         {errors.email && <p className={styles.error}>{errors.email.message}</p>}
 
-        <input
-          type="password"
-          placeholder="Password"
-          {...register("password")}
-        />
+        <div className={styles.passwordField}>
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            {...register("password")}
+          />
+
+          <button
+            type="button"
+            className={styles.eyeBtn}
+            onClick={() => setShowPassword((prev) => !prev)}
+            aria-label="Toggle password visibility"
+          >
+            <img
+              src={showPassword ? EyeOnIcon : EyeOffIcon}
+              alt={showPassword ? "Hide password" : "Show password"}
+            />
+          </button>
+        </div>
         {errors.password && (
           <p className={styles.error}>{errors.password.message}</p>
         )}

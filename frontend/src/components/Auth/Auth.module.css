@@ -76,6 +76,50 @@
   background: var(--accent-color);
 }
 
+.passwordField {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  border-radius: 12px;
+  border: 1px solid rgba(25, 26, 21, 0.1);
+  background: transparent;
+}
+
+.passwordField input {
+  border: none;
+  outline: none;
+
+  padding: 16px 18px;
+  padding-right: 48px;
+
+  width: 100%;
+  font-family: var(--font-family);
+  font-size: 16px;
+  background: transparent;
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eyeBtn img {
+  width: 20px;
+  height: 20px;
+}
+
 @media (max-width: 1439px) {
   .login,
   .register {
