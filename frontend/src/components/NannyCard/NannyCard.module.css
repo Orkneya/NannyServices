@@ -44,7 +44,7 @@
   border: none;
   padding: 0;
   cursor: pointer;
-  margin-left: auto;
+  /* margin-left: auto; */
 
   display: flex;
   align-items: center;
@@ -67,7 +67,8 @@
   fill: rgba(84, 190, 150, 0.2);
 }
 
-.age {
+.age,
+.education {
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -75,7 +76,8 @@
   gap: 0.5rem;
 }
 
-.age p {
+.age p,
+.education p {
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
@@ -88,25 +90,6 @@
   margin-bottom: 0.5rem;
 }
 
-.education {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  gap: 0.5rem;
-}
-
-.education p {
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--text-color);
-
-  border-radius: 1.5rem;
-  padding: 8px 16px;
-  background: var(--background-color);
-}
-
 .name {
   font-weight: 500;
   font-size: 24px;
@@ -115,6 +98,21 @@
   text-decoration: underline;
   text-decoration-color: var(--main-color);
   text-decoration-thickness: 2px;
+}
+
+.prise {
+  color: var(--dop-color);
+}
+
+.headInfa {
+  display: flex;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.infoBlock {
+  display: flex;
+  gap: 6px;
 }
 
 .card p {
@@ -144,5 +142,8 @@
 @media (max-width: 768px) {
   .card {
     flex-direction: column;
+  }
+  .nanny {
+    display: none;
   }
 }

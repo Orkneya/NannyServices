@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import styles from "./NannyCard.module.css";
 import HeartIcon from "../../assets/icons/HeartIcon.jsx";
+import MapIcon from "../../assets/icons/map-pin.svg";
+import StarIcon from "../../assets/icons/star.svg";
 import CalculateAge from "../../utils/calculeteAge.jsx";
 
 export default function NannyCard({ nanny }) {
@@ -19,10 +21,23 @@ export default function NannyCard({ nanny }) {
 
       <div className={styles.info}>
         <div className={styles.head}>
-          <p>Nanny</p>
-          <p>{nanny.location}</p>
-          <p>Rating: {nanny.rating}</p>
-          <p>Price: ${nanny.price_per_hour}/hour</p>
+          <p className={styles.nanny}>Nanny</p>
+          <div className={styles.headInfa}>
+            <div className={styles.infoBlock}>
+              <img src={MapIcon} alt="map" />
+              <p>{nanny.location}</p>
+            </div>
+            <div className={styles.infoBlock}>
+              <img src={StarIcon} alt="star" />
+              <p>Rating: {nanny.rating}</p>
+            </div>
+            <div className={styles.infoBlock}>
+              <p>
+                Price/ 1 hour:
+                <span className={styles.prise}> ${nanny.price_per_hour}</span>
+              </p>
+            </div>
+          </div>
           <button
             className={styles.favoriteBtn}
             onClick={toggleFavorite}
