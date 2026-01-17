@@ -24,11 +24,11 @@ export default function NannyCard({ nanny }) {
           <p className={styles.nanny}>Nanny</p>
           <div className={styles.headInfa}>
             <div className={styles.infoBlock}>
-              <img src={MapIcon} alt="map" />
+              <img src={MapIcon} alt="map" className={styles.icon} />
               <p>{nanny.location}</p>
             </div>
             <div className={styles.infoBlock}>
-              <img src={StarIcon} alt="star" />
+              <img src={StarIcon} alt="star" className={styles.icon} />
               <p>Rating: {nanny.rating}</p>
             </div>
             <div className={styles.infoBlock}>
