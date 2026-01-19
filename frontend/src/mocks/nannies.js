@@ -1,4 +1,4 @@
-export const nannies = [
+export const rawNannies = [
   {
     name: "Anna Shevchenko",
     avatar_url: "https://ftp.goit.study/img/avatars/23.jpg",
@@ -805,3 +805,7 @@ export const nannies = [
     rating: 4.95,
   },
 ];
+export const nannies = rawNannies.map((nanny, index) => ({
+  id: index + 1,
+  ...nanny,
+}));

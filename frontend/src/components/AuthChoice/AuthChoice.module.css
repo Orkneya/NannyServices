@@ -1,0 +1,73 @@
+.wrapper {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.title {
+  margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111;
+  text-align: center;
+}
+
+.text {
+  margin-bottom: 24px;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #555;
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.loginBtn,
+.registerBtn {
+  flex: 1;
+  height: 48px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.registerBtn,
+.loginBtn {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--main-color);
+}
+
+.loginBtn:hover,
+.registerBtn:hover {
+  color: var(--dop-color);
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 16px 12px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .loginBtn,
+  .registerBtn {
+    width: 100%;
+  }
+}
