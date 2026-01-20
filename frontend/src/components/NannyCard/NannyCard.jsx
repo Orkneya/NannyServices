@@ -6,16 +6,23 @@ import MapIcon from "../../assets/icons/map-pin.svg";
 import StarIcon from "../../assets/icons/star.svg";
 import CalculateAge from "../../utils/calculeteAge.jsx";
 
-export default function NannyCard({ nanny, onRequireAuth, user }) {
+export default function NannyCard({
+  nanny,
+  isFavorite,
+  onToggleFavorite,
+  user,
+  onRequireAuth,
+}) {
   const age = CalculateAge(nanny.birthday);
-  const [isFavorite, setIsFavorite] = useState(false);
 
   const handleFavoriteClick = () => {
     if (!user) {
       onRequireAuth();
       return;
     }
-    setIsFavorite((prev) => !prev);
+
+    onToggleFavorite();
+    // setIsFavorite((prev) => !prev);
   };
 
   return (

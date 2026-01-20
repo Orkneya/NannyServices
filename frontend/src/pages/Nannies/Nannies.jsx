@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Nannies.module.css";
 import { nannies } from "../../mocks/nannies.js";
 import NannyCard from "../../components/NannyCard/NannyCard.jsx";
@@ -7,6 +7,7 @@ import Modal from "../../components/Modal/Modal.jsx";
 import LoginForm from "../../components/Auth/LoginForm.jsx";
 import RegisterForm from "../../components/Auth/RegisterForm.jsx";
 import AuthChoice from "../../components/AuthChoice/AuthChoice.jsx";
+import { getUserFavorites, toggleFavorite } from "../../servises/favorites.js";
 
 export default function Nannies() {
   const { user } = useAuth();
@@ -15,6 +16,7 @@ export default function Nannies() {
   const [visibleCount, setViosibleCount] = useState(STEP);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("authChoice");
+  const [favorites, setFavorites] = useState([]);
 
   const visibleNannies = nannies.slice(0, visibleCount);
 
@@ -22,12 +24,30 @@ export default function Nannies() {
     setViosibleCount((prev) => prev + STEP);
   };
 
+  useEffect(() => {
+    if (!user) return;
+
+    getUserFavorites(user.uid).then(setFavorites);
+  }, [user]);
+
   return (
     <div>
       {visibleNannies.map((nanny, index) => (
         <NannyCard
           key={nanny.id}
           nanny={nanny}
+          isFavorite={favorites.includes(nanny.id)}
+          onToggleFavorite={async () => {
+            if (!user) {
+              setIsModalOpen(true);
+              setModalType("authChoice");
+              return;
+            }
+
+            const updated = await toggleFavorite(user.uid, nanny.id, favorites);
+
+            setFavorites(updated);
+          }}
           user={user}
           onRequireAuth={() => {
             setIsModalOpen(true);
