@@ -25,7 +25,10 @@ export default function Nannies() {
   };
 
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      setFavorites([]);
+      return;
+    }
 
     getUserFavorites(user.uid).then(setFavorites);
   }, [user]);

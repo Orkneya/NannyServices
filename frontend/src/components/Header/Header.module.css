@@ -25,6 +25,10 @@
   color: var(--main-color);
 }
 
+.logo:hover {
+  transform: scale(1.1);
+}
+
 .logoSecondary {
   font-weight: 700;
   margin-left: 4px;
@@ -48,6 +52,7 @@
 
 .link:hover,
 .link:active {
+  transform: scale(1.1);
   color: var(--main-color);
 }
 

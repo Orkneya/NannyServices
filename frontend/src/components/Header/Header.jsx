@@ -31,15 +31,17 @@ export default function Header() {
       <header className={styles.header}>
         <Container>
           <div className={styles.headerInner}>
-            <div className={styles.logo}>
-              <span className={styles.logoPrimary}>Nani</span>
-              <span className={styles.logoSecondary}>Services</span>
-            </div>
+            <NavLink to="/" className={styles.link}>
+              <div className={styles.logo}>
+                <span className={styles.logoPrimary}>Nani</span>
+                <span className={styles.logoSecondary}>Services</span>
+              </div>
+            </NavLink>
 
             <nav className={styles.nav}>
-              <NavLink to="/" className={styles.link}>
+              {/* <NavLink to="/" className={styles.link}>
                 Home
-              </NavLink>
+              </NavLink> */}
               <NavLink to="/nannies" className={styles.link}>
                 Nannies
               </NavLink>
