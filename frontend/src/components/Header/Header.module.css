@@ -53,7 +53,8 @@
 .link:hover,
 .link:active {
   transform: scale(1.1);
-  color: var(--main-color);
+  color: var(--accent-color);
+  text-decoration: underline;
 }
 
 .userIcon {
@@ -110,7 +111,7 @@
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: -0.01em;
-  background-color: var(--white);
+  /* background-color: var(--white); */
 }
 
 .authBtn:hover,
@@ -170,8 +171,12 @@
     gap: 6px;
   }
 
+  .authUser {
+    padding-right: 6px;
+  }
+
   .authBtn {
-    padding: 6px 12px;
-    font-size: 13px;
+    padding: 0 16px;
+    font-size: 14px;
   }
 }

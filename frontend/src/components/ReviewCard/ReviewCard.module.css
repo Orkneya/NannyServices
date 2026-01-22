@@ -1,0 +1,65 @@
+.review {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  flex-direction: column;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 100px;
+
+  background-color: var(--main-color);
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+
+  flex-shrink: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.header {
+  display: flex;
+  gap: 12px;
+}
+
+.name {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #11101c;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  font-size: 14px;
+  color: #555;
+}
+
+.rating img {
+  width: 16px;
+  height: 16px;
+}
+
+.comment {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+}

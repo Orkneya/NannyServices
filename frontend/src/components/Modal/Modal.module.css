@@ -27,7 +27,7 @@
   font-size: 18px;
   cursor: pointer;
   border: none;
-  background: var(--text-color-on-fone);
+  /* background: var(--text-color-on-fone); */
 }
 
 @media (max-width: 767px) {

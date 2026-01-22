@@ -11,7 +11,9 @@
 }
 
 button {
+  border: none;
   color: inherit;
   font-family: inherit;
   cursor: pointer;
+  background-color: var(--white);
 }

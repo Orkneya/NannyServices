@@ -5,6 +5,7 @@ import HeartIcon from "../../assets/icons/HeartIcon.jsx";
 import MapIcon from "../../assets/icons/map-pin.svg";
 import StarIcon from "../../assets/icons/star.svg";
 import CalculateAge from "../../utils/calculeteAge.jsx";
+import ReviewCard from "../ReviewCard/ReviewCard.jsx";
 
 export default function NannyCard({
   nanny,
@@ -20,9 +21,13 @@ export default function NannyCard({
       onRequireAuth();
       return;
     }
-
     onToggleFavorite();
-    // setIsFavorite((prev) => !prev);
+  };
+
+  const [showReviews, setShowReviews] = useState(false);
+
+  const handleMoreClick = () => {
+    setShowReviews(true);
   };
 
   return (
@@ -71,6 +76,20 @@ export default function NannyCard({
           <p>Education: {nanny.education}</p>
         </div>
         <p className={styles.light_color}>{nanny.about}</p>
+        {showReviews && (
+          <div>
+            {nanny.reviews.map((review) => (
+              <ReviewCard key={review.id} review={review} />
+            ))}
+          </div>
+        )}
+        {!showReviews ? (
+          <button className={styles.btnMore} onClick={handleMoreClick}>
+            Read more
+          </button>
+        ) : (
+          <button className={styles.btnAppointment}>Make an appointment</button>
+        )}
       </div>
     </div>
   );
