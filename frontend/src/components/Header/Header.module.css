@@ -35,10 +35,10 @@
   color: var(--text-color);
 }
 
-.nav {
+/* .nav {
   display: flex;
   gap: 32px;
-}
+} */
 
 .link {
   text-decoration: none;
@@ -55,6 +55,11 @@
   transform: scale(1.1);
   color: var(--accent-color);
   text-decoration: underline;
+}
+
+.linkLogo:hover,
+.linkLogo:active {
+  text-decoration: none;
 }
 
 .userIcon {
@@ -83,7 +88,7 @@
 .auth {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
 }
 
 .authUser {
@@ -116,6 +121,7 @@
 
 .authBtn:hover,
 .authBtn:active {
+  scale: 1.1;
   border-color: var(--main-color);
   color: var(--main-color);
 }
@@ -144,7 +150,7 @@
     padding: 8px 12px;
   }
 
-  .logo {
+  .linkLogo {
     font-size: 16px;
   }
 
@@ -152,8 +158,12 @@
     gap: 8px;
   }
 
-  .link {
+  /* .link {
     font-size: 14px;
+  } */
+
+  .linkForMobil {
+    display: none;
   }
 
   .userIcon {

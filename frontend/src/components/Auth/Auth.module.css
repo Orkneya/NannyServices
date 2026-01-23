@@ -71,7 +71,7 @@
 
 .submitBtn:after,
 .submitBtn:hover {
-  background: var(--accent-color);
+  background-color: var(--accent-color);
 }
 
 .passwordField {

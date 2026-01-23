@@ -31,21 +31,24 @@ export default function Header() {
       <header className={styles.header}>
         <Container>
           <div className={styles.headerInner}>
-            <NavLink to="/" className={styles.link}>
+            <NavLink to="/" className={`${styles.link} ${styles.linkLogo}`}>
               <div className={styles.logo}>
                 <span className={styles.logoPrimary}>Nani</span>
                 <span className={styles.logoSecondary}>Services</span>
               </div>
             </NavLink>
 
-            <nav className={styles.nav}>
-              {/* <NavLink to="/" className={styles.link}>
+            {/* <nav className={styles.nav}> */}
+            {/* <NavLink to="/" className={styles.link}>
                 Home
               </NavLink> */}
-              <NavLink to="/nannies" className={styles.link}>
-                Nannies
-              </NavLink>
-            </nav>
+            <NavLink
+              to="/nannies"
+              className={`${styles.link} ${styles.linkForMobil}`}
+            >
+              Nannies
+            </NavLink>
+            {/* </nav> */}
 
             <div className={styles.auth}>
               {user ? (

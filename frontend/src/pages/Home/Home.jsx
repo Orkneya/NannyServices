@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Home.module.css";
 import childrenImg from "../../assets/images/children.webp";
+import { NavLink } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -14,10 +15,10 @@ export default function Home() {
           Find Babysitters Online for All Occasions
         </p>
 
-        <button className={styles.cta}>
-          Get Started
+        <NavLink to="/nannies" className={styles.btn}>
+          Get Started Search Nanny
           <span className={styles.arrow}>↗</span>
-        </button>
+        </NavLink>
       </div>
 
       <div
