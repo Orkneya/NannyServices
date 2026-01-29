@@ -805,7 +805,11 @@ export const rawNannies = [
     rating: 4.95,
   },
 ];
-export const nannies = rawNannies.map((nanny, index) => ({
-  id: index + 1,
+export const nannies = rawNannies.map((nanny, nannyIndex) => ({
+  id: nannyIndex + 1,
   ...nanny,
+  reviews: nanny.reviews.map((review, reviewIndex) => ({
+    id: `${nannyIndex + 1}-${reviewIndex + 1}`,
+    ...review,
+  })),
 }));

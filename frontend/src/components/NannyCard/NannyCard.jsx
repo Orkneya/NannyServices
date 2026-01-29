@@ -6,6 +6,8 @@ import MapIcon from "../../assets/icons/map-pin.svg";
 import StarIcon from "../../assets/icons/star.svg";
 import CalculateAge from "../../utils/calculeteAge.jsx";
 import ReviewCard from "../ReviewCard/ReviewCard.jsx";
+import AppointmentForm from "../AppointmentForm/AppointmentForm.jsx";
+import Modal from "../Modal/Modal.jsx";
 
 export default function NannyCard({
   nanny,
@@ -29,6 +31,10 @@ export default function NannyCard({
   const handleMoreClick = () => {
     setShowReviews(true);
   };
+
+  const [authType, setAuthType] = useState(null);
+
+  const closeModal = () => setAuthType(null);
 
   return (
     <div className={styles.card}>
@@ -88,9 +94,17 @@ export default function NannyCard({
             Read more
           </button>
         ) : (
-          <button className={styles.btnAppointment}>Make an appointment</button>
+          <button
+            className={styles.btnAppointment}
+            onClick={() => setAuthType(true)}
+          >
+            Make an appointment
+          </button>
         )}
       </div>
+      <Modal isOpen={authType !== null} onClose={closeModal}>
+        <AppointmentForm nanny={nanny} />
+      </Modal>
     </div>
   );
 }

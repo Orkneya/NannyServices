@@ -1,5 +1,6 @@
 .login,
-.register {
+.register,
+.appointment {
   padding: 64px;
   display: flex;
   flex-direction: column;
