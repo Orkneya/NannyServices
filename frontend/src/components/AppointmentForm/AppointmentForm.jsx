@@ -1,85 +1,128 @@
 import { useForm } from "react-hook-form";
-// import styles from "./AppointmentForm.module.css";
-import styles from "../Auth/Auth.module.css";
-import style from "../NannyCard/NannyCard.module.css";
+import styles from "./AppointmentForm.module.css";
+import style from "../Auth/Auth.module.css";
+
+import { yupResolver } from "@hookform/resolvers/yup";
+import { appointmentSchema } from "../../schemas/appointmentSchema";
 
 export default function AppointmentForm({ nanny }) {
-  // export default function AppointmentForm({ onClose }) {
-  // const [showPassword, setShowPassword] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(appointmentSchema),
+  });
 
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm({
-  //   resolver: yupResolver(loginSchema),
-  // });
-  // const onSubmit = async (data) => {
-  //   try {
-  //     const { email, password } = data;
-
-  //     await signInWithEmailAndPassword(auth, email, password);
-
-  //     console.log("User logged in");
-  //     onClose();
-  //   } catch (error) {
-  //     console.error(error.message);
-  //   }
-  // };
+  const onSubmit = (data) => {
+    console.log(data);
+    // здесь отправка на сервер
+  };
 
   return (
-    // <form className={styles.appointmentForm} onSubmit={handleSubmit(onSubmit)}>
-    <form className={styles.appointment}>
-      <h2 className={styles.title}>
+    <div className={style.appointment}>
+      <h2 className={style.title}>
         Make an appointment <br /> with a babysitter
       </h2>
-      <p className={styles.subtitle}>
+      <p className={style.subtitle}>
         Arranging a meeting with a caregiver for your child is the first step to
         creating a safe and comfortable environment. Fill out the form below so
         we can match you with the perfect care partner.
       </p>
 
-      <div className={style.card}>
-        <div className={style.avatar}>
+      <div className={styles.card}>
+        <div className={styles.avatar}>
           <img src={nanny.avatar_url} alt={nanny.name} />
         </div>
 
         <div className={style.info}>
-          <p className={style.nanny}>Your nanny</p>
-          <h3 className={style.name}>{nanny.name}</h3>
+          <p className={styles.nanny}>Your nanny</p>
+          <h3 className={styles.name}>{nanny.name}</h3>
         </div>
       </div>
 
-      {/* 
-      <div className={styles.fields}>
-        <input type="email" placeholder="Email" {...register("email")} />
-        {errors.email && <p className={styles.error}>{errors.email.message}</p>}
+      <form
+        className={styles.appointmentForm}
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <div className={styles.fieldsContainer}>
+          <div className={styles.row}>
+            <div className={styles.field}>
+              <input
+                type="text"
+                placeholder="Address"
+                {...register("address")}
+              />
+              {errors.address && (
+                <p className={styles.error}>{errors.address.message}</p>
+              )}
+            </div>
 
-        <div className={styles.passwordField}>
-          <input
-            type={showPassword ? "text" : "password"}
-            placeholder="Password"
-            {...register("password")}
-          />
+            <div className={styles.field}>
+              <input
+                type="text"
+                placeholder="+380XXXXXXXXX"
+                {...register("phone")}
+              />
+              {errors.phone && (
+                <p className={styles.error}>{errors.phone.message}</p>
+              )}
+            </div>
+          </div>
 
-          <button
-            type="button"
-            className={styles.eyeBtn}
-            onClick={() => setShowPassword((prev) => !prev)}
-            aria-label="Toggle password visibility"
-          >
-            <img
-              src={showPassword ? EyeOnIcon : EyeOffIcon}
-              alt={showPassword ? "Hide password" : "Show password"}
+          <div className={styles.row}>
+            <div className={styles.field}>
+              <input
+                type="number"
+                placeholder="Child`s age"
+                {...register("child_age")}
+              />
+              {errors.child_age && (
+                <p className={styles.error}>{errors.child_age.message}</p>
+              )}
+            </div>
+
+            <div className={styles.field}>
+              <input type="time" {...register("time")} />
+              {errors.time && (
+                <p className={styles.error}>{errors.time.message}</p>
+              )}
+            </div>
+          </div>
+
+          {/* Нижние 3 поля — на всю ширину */}
+          <div className={styles.field}>
+            <input type="email" placeholder="Email" {...register("email")} />
+            {errors.email && (
+              <p className={styles.error}>{errors.email.message}</p>
+            )}
+          </div>
+
+          <div className={styles.field}>
+            <input
+              type="text"
+              placeholder="Parent's Name"
+              {...register("parentsName")}
             />
-          </button>
-        </div>
-        {errors.password && (
-          <p className={styles.error}>{errors.password.message}</p>
-        )}
-      </div> */}
+            {errors.parentsName && (
+              <p className={styles.error}>{errors.parentsName.message}</p>
+            )}
+          </div>
 
-      <button className={styles.submitBtn}>Send</button>
-    </form>
+          <div className={styles.field}>
+            <textarea
+              className={styles.commentArea}
+              placeholder="Comment"
+              {...register("comment")}
+            />
+            {errors.comment && (
+              <p className={styles.error}>{errors.comment.message}</p>
+            )}
+          </div>
+        </div>
+
+        <button className={style.submitBtn}>Send</button>
+      </form>
+    </div>
   );
 }
