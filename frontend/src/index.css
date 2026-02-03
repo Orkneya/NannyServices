@@ -17,3 +17,12 @@ button {
   cursor: pointer;
   background-color: var(--white);
 }
+
+body {
+  margin: 0;
+  font-family: "inter", sant-serif;
+}
+
+h2 {
+  margin-top: 0;
+}

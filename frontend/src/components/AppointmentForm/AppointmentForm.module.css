@@ -1,6 +1,14 @@
 .appointmentForm {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
 }
 
 .fieldsContainer {
@@ -67,12 +75,12 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
-  color: #11101c;
+  color: var(--main-color);
   margin: 0;
 }
 
 .commentArea {
-  min-height: 120px;
+  min-height: 100px;
   resize: vertical;
 }
 
@@ -80,7 +88,7 @@ input,
 textarea {
   padding: 10px;
   font-size: 16px;
-  height: 44px;
+  height: 40px;
   border: 1px solid rgba(17, 16, 28, 0.1);
   border-radius: 12px;
 }
@@ -92,16 +100,31 @@ textarea {
 
 /* Мобильная версия */
 @media (max-width: 768px) {
+  .appointmentForm {
+    max-width: 700px;
+  }
+
   .row {
     flex-direction: column;
   }
 
+  input,
+  textarea {
+    padding: 8px;
+    font-size: 14px;
+    height: 28px;
+  }
+
   .field {
-    height: 34px;
+    min-width: 100%;
+  }
+
+  .commentArea {
+    min-height: 80px;
   }
 
   .fieldsContainer {
-    gap: 0.7rem;
-    margin-bottom: 30px;
+    gap: 0.6rem;
+    margin-bottom: 20px;
   }
 }

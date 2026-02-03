@@ -22,13 +22,11 @@
 
 .closeBtn {
   position: absolute;
-  /* padding-right: 5px; */
   top: 20px;
   right: 20px;
-  font-size: 18px;
+  /* font-size: 18px; */
   cursor: pointer;
   border: none;
-  /* background: var(--text-color-on-fone); */
 }
 
 @media (max-width: 767px) {

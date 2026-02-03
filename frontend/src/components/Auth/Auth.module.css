@@ -121,7 +121,8 @@
 
 @media (max-width: 1439px) {
   .login,
-  .register {
+  .register,
+  .appointment {
     padding: 48px;
   }
 
@@ -143,7 +144,8 @@
 
 @media (max-width: 767px) {
   .login,
-  .register {
+  .register,
+  .appointment {
     padding: 24px;
     border-radius: 20px;
   }

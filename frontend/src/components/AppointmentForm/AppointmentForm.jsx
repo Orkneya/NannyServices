@@ -83,7 +83,7 @@ export default function AppointmentForm({ nanny }) {
             </div>
 
             <div className={styles.field}>
-              <input type="time" {...register("time")} />
+              <input type="time" placeholder="00:00" {...register("time")} />
               {errors.time && (
                 <p className={styles.error}>{errors.time.message}</p>
               )}
@@ -101,7 +101,7 @@ export default function AppointmentForm({ nanny }) {
           <div className={styles.field}>
             <input
               type="text"
-              placeholder="Parent's Name"
+              placeholder="Father's or mother's name"
               {...register("parentsName")}
             />
             {errors.parentsName && (
