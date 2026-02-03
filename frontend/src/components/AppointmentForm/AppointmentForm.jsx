@@ -9,10 +9,13 @@ export default function AppointmentForm({ nanny }) {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(appointmentSchema),
   });
+
+  const timeValue = watch("time");
 
   const onSubmit = (data) => {
     console.log(data);
@@ -83,14 +86,24 @@ export default function AppointmentForm({ nanny }) {
             </div>
 
             <div className={styles.field}>
-              <input type="time" placeholder="00:00" {...register("time")} />
+              {/* <input type="time" placeholder="Time" {...register("time")} /> */}
+              <div className={`${styles.field} ${styles.timeField}`}>
+                <input type="time" {...register("time")} />
+                {!timeValue && (
+                  <span className={styles.fakePlaceholder}>Meeting time</span>
+                )}
+              </div>
+
+              {/* <div className={styles.field}>
+                <label className={styles.label}>Time</label>
+                <input type="time" {...register("time")} />
+              </div> */}
               {errors.time && (
                 <p className={styles.error}>{errors.time.message}</p>
               )}
             </div>
           </div>
 
-          {/* Нижние 3 поля — на всю ширину */}
           <div className={styles.field}>
             <input type="email" placeholder="Email" {...register("email")} />
             {errors.email && (
