@@ -33,7 +33,7 @@ export default function Header() {
           <div className={styles.headerInner}>
             <NavLink to="/" className={`${styles.link} ${styles.linkLogo}`}>
               <div className={styles.logo}>
-                <span className={styles.logoPrimary}>Nani</span>
+                <span className={styles.logoPrimary}>Nanny</span>
                 <span className={styles.logoSecondary}>Services</span>
               </div>
             </NavLink>

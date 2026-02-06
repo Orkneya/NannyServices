@@ -11,12 +11,12 @@ const OPTIONS = [
   "Show all",
 ];
 
-export default function FiltersDropdown() {
+export default function FiltersDropdown({ value, onChange }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("A to Z");
+  // const [selected, setSelected] = useState("A to Z");
 
   const handleSelect = (option) => {
-    setSelected(option);
+    onChange(option);
     setIsOpen(false);
   };
 
@@ -25,7 +25,7 @@ export default function FiltersDropdown() {
       <p className={styles.label}>Filters</p>
 
       <div className={styles.select} onClick={() => setIsOpen((prev) => !prev)}>
-        <span>{selected}</span>
+        <span>{value}</span>
         <span className={`${styles.arrow} ${isOpen ? styles.open : ""}`}>
           ▼
         </span>
@@ -37,7 +37,7 @@ export default function FiltersDropdown() {
             <div
               key={option}
               // className={styles.option}
-              className={`${styles.option} ${option === selected ? styles.selected : ""}`}
+              className={`${styles.option} ${option === value ? styles.selected : ""}`}
               onClick={() => handleSelect(option)}
             >
               {option}

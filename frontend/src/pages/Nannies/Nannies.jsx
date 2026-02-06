@@ -11,6 +11,8 @@ import { getUserFavorites, toggleFavorite } from "../../servises/favorites.js";
 import FiltersDropdown from "../../components/FiltersDropdown/FiltersDropdown.jsx";
 
 export default function Nannies() {
+  const [filter, setFilter] = useState("A to Z");
+
   const { user } = useAuth();
   const STEP = 3;
 
@@ -18,8 +20,6 @@ export default function Nannies() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("authChoice");
   const [favorites, setFavorites] = useState([]);
-
-  const visibleNannies = nannies.slice(0, visibleCount);
 
   const handleLoadMore = () => {
     setViosibleCount((prev) => prev + STEP);
@@ -34,9 +34,39 @@ export default function Nannies() {
     getUserFavorites(user.uid).then(setFavorites);
   }, [user]);
 
+  const filteredNannies = [...nannies].sort((a, b) => {
+    switch (filter) {
+      case "A to Z":
+        return a.name.localeCompare(b.name);
+
+      case "Z to A":
+        return b.name.localeCompare(a.name);
+
+      case "Less than $10":
+        return a.price_per_hour < 10 ? -1 : 1;
+
+      case "Greater than $10":
+        return a.price_per_hour > 10 ? -1 : 1;
+
+      case "Popular":
+        return b.rating - a.rating;
+
+      case "No Popular":
+        return a.rating - b.rating;
+
+      case "Show all":
+      default:
+        return 0;
+    }
+  });
+
+  const visibleNannies = filteredNannies.slice(0, visibleCount);
+
   return (
     <div>
-      <FiltersDropdown />
+      <FiltersDropdown value={filter} onChange={setFilter} />
+
+      {/* <FiltersDropdown /> */}
       <div className={styles.nanny_card}>
         {visibleNannies.map((nanny, index) => (
           <NannyCard
@@ -67,7 +97,7 @@ export default function Nannies() {
         ))}
       </div>
       <div className={styles.btn_wrapper}>
-        {visibleCount < nannies.length && (
+        {visibleCount < filteredNannies.length && (
           <button className={styles.btn_load} onClick={handleLoadMore}>
             Load more
           </button>
