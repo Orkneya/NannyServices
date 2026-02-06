@@ -66,7 +66,6 @@ export default function Nannies() {
     <div>
       <FiltersDropdown value={filter} onChange={setFilter} />
 
-      {/* <FiltersDropdown /> */}
       <div className={styles.nanny_card}>
         {visibleNannies.map((nanny, index) => (
           <NannyCard

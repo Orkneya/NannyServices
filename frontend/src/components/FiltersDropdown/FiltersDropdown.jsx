@@ -13,7 +13,6 @@ const OPTIONS = [
 
 export default function FiltersDropdown({ value, onChange }) {
   const [isOpen, setIsOpen] = useState(false);
-  // const [selected, setSelected] = useState("A to Z");
 
   const handleSelect = (option) => {
     onChange(option);
@@ -36,7 +35,6 @@ export default function FiltersDropdown({ value, onChange }) {
           {OPTIONS.map((option) => (
             <div
               key={option}
-              // className={styles.option}
               className={`${styles.option} ${option === value ? styles.selected : ""}`}
               onClick={() => handleSelect(option)}
             >
