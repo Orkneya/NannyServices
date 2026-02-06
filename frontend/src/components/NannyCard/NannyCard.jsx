@@ -103,7 +103,7 @@ export default function NannyCard({
         )}
       </div>
       <Modal isOpen={authType !== null} onClose={closeModal}>
-        <AppointmentForm nanny={nanny} />
+        <AppointmentForm nanny={nanny} onSuccess={closeModal} />
       </Modal>
     </div>
   );

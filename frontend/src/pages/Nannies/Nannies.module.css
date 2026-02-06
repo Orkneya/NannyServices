@@ -1,3 +1,9 @@
+.nanny_card {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+}
+
 .btn_wrapper {
   display: flex;
   justify-content: center;
@@ -22,4 +28,10 @@
 .btn_load:active {
   border: 2px solid var(--main-color);
   color: var(--main-color);
+}
+
+@media (max-width: 768px) {
+  .nanny_card {
+    gap: 12px;
+  }
 }

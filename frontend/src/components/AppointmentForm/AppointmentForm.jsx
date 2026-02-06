@@ -5,11 +5,12 @@ import style from "../Auth/Auth.module.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { appointmentSchema } from "../../schemas/appointmentSchema";
 
-export default function AppointmentForm({ nanny }) {
+export default function AppointmentForm({ nanny, onSuccess }) {
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(appointmentSchema),
@@ -20,8 +21,10 @@ export default function AppointmentForm({ nanny }) {
   const onSubmit = (data) => {
     console.log(data);
     // здесь отправка на сервер
-  };
 
+    reset();
+    onSuccess();
+  };
   return (
     <div className={style.appointment}>
       <h2 className={style.title}>
@@ -86,7 +89,6 @@ export default function AppointmentForm({ nanny }) {
             </div>
 
             <div className={styles.field}>
-              {/* <input type="time" placeholder="Time" {...register("time")} /> */}
               <div className={`${styles.field} ${styles.timeField}`}>
                 <input type="time" {...register("time")} />
                 {!timeValue && (
@@ -134,7 +136,9 @@ export default function AppointmentForm({ nanny }) {
           </div>
         </div>
 
-        <button className={style.submitBtn}>Send</button>
+        <button className={style.submitBtn} type="submit">
+          Send
+        </button>
       </form>
     </div>
   );

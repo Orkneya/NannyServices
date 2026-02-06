@@ -8,6 +8,7 @@ import LoginForm from "../../components/Auth/LoginForm.jsx";
 import RegisterForm from "../../components/Auth/RegisterForm.jsx";
 import AuthChoice from "../../components/AuthChoice/AuthChoice.jsx";
 import { getUserFavorites, toggleFavorite } from "../../servises/favorites.js";
+import FiltersDropdown from "../../components/FiltersDropdown/FiltersDropdown.jsx";
 
 export default function Nannies() {
   const { user } = useAuth();
@@ -35,29 +36,36 @@ export default function Nannies() {
 
   return (
     <div>
-      {visibleNannies.map((nanny, index) => (
-        <NannyCard
-          key={nanny.id}
-          nanny={nanny}
-          isFavorite={favorites.includes(nanny.id)}
-          onToggleFavorite={async () => {
-            if (!user) {
+      <FiltersDropdown />
+      <div className={styles.nanny_card}>
+        {visibleNannies.map((nanny, index) => (
+          <NannyCard
+            key={nanny.id}
+            nanny={nanny}
+            isFavorite={favorites.includes(nanny.id)}
+            onToggleFavorite={async () => {
+              if (!user) {
+                setIsModalOpen(true);
+                setModalType("authChoice");
+                return;
+              }
+
+              const updated = await toggleFavorite(
+                user.uid,
+                nanny.id,
+                favorites,
+              );
+
+              setFavorites(updated);
+            }}
+            user={user}
+            onRequireAuth={() => {
               setIsModalOpen(true);
               setModalType("authChoice");
-              return;
-            }
-
-            const updated = await toggleFavorite(user.uid, nanny.id, favorites);
-
-            setFavorites(updated);
-          }}
-          user={user}
-          onRequireAuth={() => {
-            setIsModalOpen(true);
-            setModalType("authChoice");
-          }}
-        />
-      ))}
+            }}
+          />
+        ))}
+      </div>
       <div className={styles.btn_wrapper}>
         {visibleCount < nannies.length && (
           <button className={styles.btn_load} onClick={handleLoadMore}>
