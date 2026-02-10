@@ -42,11 +42,11 @@ export default function Nannies() {
       case "Z to A":
         return b.name.localeCompare(a.name);
 
-      case "Less than $10":
-        return a.price_per_hour < 10 ? -1 : 1;
+      case "Less than $20":
+        return a.price_per_hour < 20 ? -1 : 1;
 
-      case "Greater than $10":
-        return a.price_per_hour > 10 ? -1 : 1;
+      case "Greater than $20":
+        return a.price_per_hour > 20 ? -1 : 1;
 
       case "Popular":
         return b.rating - a.rating;

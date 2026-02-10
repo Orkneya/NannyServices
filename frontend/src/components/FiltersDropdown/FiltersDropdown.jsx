@@ -5,7 +5,7 @@ const OPTIONS = [
   "A to Z",
   "Z to A",
   "Less than $10",
-  "Greater than $10",
+  "Greater than $20",
   "Popular",
   "No Popular",
   "Show all",

@@ -35,10 +35,10 @@
   color: var(--text-color);
 }
 
-/* .nav {
+.nav {
   display: flex;
   gap: 32px;
-} */
+}
 
 .link {
   text-decoration: none;

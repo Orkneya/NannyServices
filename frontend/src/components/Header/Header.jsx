@@ -38,17 +38,26 @@ export default function Header() {
               </div>
             </NavLink>
 
-            {/* <nav className={styles.nav}> */}
-            {/* <NavLink to="/" className={styles.link}>
+            <nav className={styles.nav}>
+              {/* <NavLink to="/" className={styles.link}>
                 Home
               </NavLink> */}
-            <NavLink
-              to="/nannies"
-              className={`${styles.link} ${styles.linkForMobil}`}
-            >
-              Nannies
-            </NavLink>
-            {/* </nav> */}
+              <NavLink
+                to="/nannies"
+                className={`${styles.link} ${styles.linkForMobil}`}
+              >
+                Nannies
+              </NavLink>
+
+              {user && (
+                <NavLink
+                  to="/favorites"
+                  className={`${styles.link} ${styles.linkForMobil}`}
+                >
+                  Favorites
+                </NavLink>
+              )}
+            </nav>
 
             <div className={styles.auth}>
               {user ? (

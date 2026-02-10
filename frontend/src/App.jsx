@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home.jsx";
 import Nannies from "./pages/Nannies/Nannies.jsx";
 import Favorites from "./pages/Favorites/Favorites.jsx";
 import MainLayout from "./layout/MainLayout.jsx";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.jsx";
 
 function App() {
   return (
@@ -15,11 +16,17 @@ function App() {
           <Route
             path="/favorites"
             element={
-              // <PrivateRoute>
-              <Favorites />
-              // </PrivateRoute>
+              <ProtectedRoute>
+                <Favorites />
+              </ProtectedRoute>
             }
           />
+          {/* <Route
+            path="/favorites"
+            element={
+              <Favorites />
+            }
+          /> */}
         </Route>
       </Routes>
     </BrowserRouter>
