@@ -9,6 +9,7 @@ import RegisterForm from "../../components/Auth/RegisterForm.jsx";
 import AuthChoice from "../../components/AuthChoice/AuthChoice.jsx";
 import { getUserFavorites, toggleFavorite } from "../../servises/favorites.js";
 import FiltersDropdown from "../../components/FiltersDropdown/FiltersDropdown.jsx";
+import { sortNannies } from "../../utils/sortNannies.js";
 
 export default function Nannies() {
   const [filter, setFilter] = useState("A to Z");
@@ -34,37 +35,13 @@ export default function Nannies() {
     getUserFavorites(user.uid).then(setFavorites);
   }, [user]);
 
-  const filteredNannies = [...nannies].sort((a, b) => {
-    switch (filter) {
-      case "A to Z":
-        return a.name.localeCompare(b.name);
-
-      case "Z to A":
-        return b.name.localeCompare(a.name);
-
-      case "Less than $20":
-        return a.price_per_hour < 20 ? -1 : 1;
-
-      case "Greater than $20":
-        return a.price_per_hour > 20 ? -1 : 1;
-
-      case "Popular":
-        return b.rating - a.rating;
-
-      case "No Popular":
-        return a.rating - b.rating;
-
-      case "Show all":
-      default:
-        return 0;
-    }
-  });
+  const filteredNannies = sortNannies(nannies, filter);
 
   const visibleNannies = filteredNannies.slice(0, visibleCount);
 
   return (
     <div>
-      <FiltersDropdown value={filter} onChange={setFilter} />
+      <FiltersDropdown value={filter} onChange={setFilter} user={user} />
 
       <div className={styles.nanny_card}>
         {visibleNannies.map((nanny, index) => (

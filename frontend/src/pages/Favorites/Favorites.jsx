@@ -3,8 +3,11 @@ import { nannies } from "../../mocks/nannies";
 import { useAuth } from "../../context/AuthContext";
 import { getUserFavorites, toggleFavorite } from "../../servises/favorites";
 import NannyCard from "../../components/NannyCard/NannyCard";
+import FiltersDropdown from "../../components/FiltersDropdown/FiltersDropdown";
+import { sortNannies } from "../../utils/sortNannies";
 
 export default function Favorites() {
+  const [filter, setFilter] = useState("A to Z");
   const { user } = useAuth();
   const [favorites, setFavorites] = useState([]);
   const [favoriteNannies, setFavoriteNannies] = useState([]);
@@ -25,9 +28,12 @@ export default function Favorites() {
     return <p>No favorites yet 💚</p>;
   }
 
+  const sortedFavorites = sortNannies(favoriteNannies, filter);
+
   return (
     <div>
-      {favoriteNannies.map((nanny) => (
+      <FiltersDropdown value={filter} onChange={setFilter} user={user} />
+      {sortedFavorites.map((nanny) => (
         <NannyCard
           key={nanny.id}
           nanny={nanny}

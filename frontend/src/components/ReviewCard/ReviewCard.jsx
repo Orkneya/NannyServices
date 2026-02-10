@@ -16,8 +16,6 @@ export default function ReviewCard({ review }) {
           <div className={styles.rating}>
             <img src={StarIcon} alt="star" />
             <span>{Number(review.rating).toFixed(1)}</span>
-
-            {/* <span>{review.rating}</span> */}
           </div>
         </div>
       </div>
